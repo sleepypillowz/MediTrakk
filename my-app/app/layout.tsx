@@ -1,4 +1,4 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 
 import "./globals.css";
@@ -16,7 +16,6 @@ export default function RootLayout({
         <SidebarProvider>
           <AppSidebar />
           <main className="container mx-auto xl:mx-0">
-            <SidebarTrigger />
             {children}
           </main>
         </SidebarProvider>

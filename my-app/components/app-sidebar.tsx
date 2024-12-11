@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings, User2, ChevronUp } from "lucide-react"
+import { Calendar, Home, Users, Search, Settings, User2, ChevronUp } from "lucide-react"
 
 import {
   Sidebar,
@@ -25,17 +25,17 @@ import {
 const items = [
   {
     title: "Home",
-    url: "#",
+    url: "/",
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
+    title: "Patients",
+    url: "/patients",
+    icon: Users,
   },
   {
-    title: "Calendar",
-    url: "#",
+    title: "Appointment",
+    url: "/appointment",
     icon: Calendar,
   },
   {

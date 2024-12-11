@@ -1,5 +1,5 @@
 import { AppCard } from "@/components/app-card";
-import { BarChartMixed } from "@/components/bar-chart-mixed";
+import { AppBarChartMixed } from "@/components/bar-chart-mixed";
 
 const cardsData = [
   { title: "Total Patient", description: "Description 1", content: "84", footer: "↓ -17.65% Since last week" },
@@ -28,7 +28,7 @@ export default function Home() {
           ))}
         </div>
         <div className="flex justify-center sm:justify-end">
-          <BarChartMixed />
+          <AppBarChartMixed />
         </div>
 
       </main>

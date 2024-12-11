@@ -48,7 +48,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function BarChartMixed() {
+export function AppBarChartMixed() {
   return (
     <Card className="my-8 w-1/2">
       <CardHeader>
