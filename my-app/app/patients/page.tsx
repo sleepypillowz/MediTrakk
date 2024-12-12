@@ -1,3 +1,5 @@
+"use client"
+import { useEffect, useState } from 'react';
 import {
   Table,
   TableBody,
@@ -6,14 +8,48 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-
+} from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 
+type Patient = {
+  id: string;
+  lastName: string;
+  firstName: string;
+  age: number;
+  gender: string;
+  mobile: string;
+  birthday: string;
+};
+
 export default function Patients() {
+  const [patients, setPatients] = useState<Patient[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchPatients() {
+      try {
+        const response = await fetch('/api');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data: Patient[] = await response.json();
+        setPatients(data);
+      } catch (error) {
+        console.error('Error fetching patient data:', error);
+        setError('Failed to fetch patients. Please try again later.');
+      }
+    }
+
+    fetchPatients();
+  }, []);
+
+  if (error) {
+    return <div className="text-red-500">{error}</div>;
+  }
+
   return (
     <main className="px-8">
-      <Input />
+      <Input placeholder="Search patients..." className="mb-4" />
       <Table>
         <TableCaption>A list of your recent patients.</TableCaption>
         <TableHeader className="bg-muted/50">
@@ -28,17 +64,20 @@ export default function Patients() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableCell className="font-medium">001</TableCell>
-            <TableCell>Doe</TableCell>
-            <TableCell>John</TableCell>
-            <TableCell>45</TableCell>
-            <TableCell>Male</TableCell>
-            <TableCell>09691234567</TableCell>
-            <TableCell>1979-09-11</TableCell>
-          </TableRow>
+          {patients.map(patient => (
+            <TableRow key={patient.id}>
+              <TableCell className="font-medium">{patient.id}</TableCell>
+              <TableCell>{patient.lastName}</TableCell>
+              <TableCell>{patient.firstName}</TableCell>
+              <TableCell>{patient.age}</TableCell>
+              <TableCell>{patient.gender}</TableCell>
+              <TableCell>{patient.mobile}</TableCell>
+              <TableCell>{patient.birthday}</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </main>
   );
 }
+
