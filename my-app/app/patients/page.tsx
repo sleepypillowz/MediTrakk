@@ -10,7 +10,7 @@ import {
 
 import { Input } from "@/components/ui/input";
 
-export default function Home() {
+export default function Patients() {
   return (
     <main className="px-8">
       <Input />
