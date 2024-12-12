@@ -15,11 +15,11 @@ interface AppCardProps {
 
 export function AppCard({ title, content, footer, footerClassName }: AppCardProps) {
   return (
-    <Card className="w-96 sm:w-72 md:w-80 lg:w-72 xl:w-96">
+    <Card>
       <CardHeader>
-        <CardTitle className="text-2xl font-normal">{title}</CardTitle>
+        <CardTitle>{title}</CardTitle>
       </CardHeader>
-      <CardContent className="text-2xl font-bold">
+      <CardContent>
         <p>{content}</p>
       </CardContent>
       <CardFooter>

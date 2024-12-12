@@ -17,7 +17,7 @@ export default function Home() {
           <p className="text-2xl font-bold">Good Day, Juan</p>
           <p>Check out the latest updates from the past 7 days!</p>
         </div>
-        <div className="grid grid-cols-1 justify-items-center gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:pl-20 2xl:flex 2xl:flex-row">
+        <div className="grid grid-cols-1 justify-items-center gap-y-4 sm:grid-cols-2 2xl:flex 2xl:flex-row">
           {cardsData.map((card, index) => (
             <AppCard
               key={index}
@@ -28,7 +28,7 @@ export default function Home() {
             />
           ))}
         </div>
-        <div className="flex justify-center sm:justify-end">
+        <div className="flex justify-center lg:pr-20 xl:justify-end xl:pr-0">
           <AppBarChartMixed />
         </div>
 
