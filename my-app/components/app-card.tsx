@@ -10,19 +10,20 @@ interface AppCardProps {
   title: string;
   content: string;
   footer: string;
+  footerClassName: string;
 }
 
-export function AppCard({ title, content, footer }: AppCardProps) {
+export function AppCard({ title, content, footer, footerClassName }: AppCardProps) {
   return (
-    <Card className="w-72">
+    <Card className="w-96 sm:w-72 md:w-80 lg:w-72 xl:w-96">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-2xl font-normal">{title}</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="text-2xl font-bold">
         <p>{content}</p>
       </CardContent>
       <CardFooter>
-        <p>{footer}</p>
+        <p className={footerClassName}>{footer}</p>
       </CardFooter>
     </Card>
   );

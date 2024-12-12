@@ -50,7 +50,7 @@ const chartConfig = {
 
 export function AppBarChartMixed() {
   return (
-    <Card className="my-8 w-1/2">
+    <Card className="my-8 w-full sm:w-1/2 xl:w-1/4">
       <CardHeader>
         <CardTitle>Common Diseases</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
