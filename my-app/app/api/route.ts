@@ -18,4 +18,3 @@ const patients: Patient[] = [
 export async function GET() {
   return NextResponse.json(patients);
 }
-
